@@ -33,4 +33,9 @@ jobs:
             cd node/test-0001
             npm ci
             pm2 delete 'test-0001'
-            pm2 start npm --name 'test-0001' -- run dev
+            pm2 start npm --name 'test-0001' -- run server
+            cd client
+            npm ci
+            cd ../
+            pm2 delete 'test-0001-client'
+            pm2 start npm --name 'test-0001-client' -- run client
